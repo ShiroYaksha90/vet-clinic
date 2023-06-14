@@ -68,3 +68,12 @@ JOIN vets on visits.vet_id = vets.id
 JOIN specializations on vets.id = specializations.vet_id
 JOIN species on specialties.species_id = species.id
 where animals.species_id != species.id;
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- add index to tabels
+CREATE INDEX inx_visits_animal_asc ON visits(animal_id ASC);
+CREATE INDEX inx_visits_vet_asc ON visits(vet_id ASC);
+CREATE INDEX inx_owners_emails_asc ON owners(email ASC);
+
